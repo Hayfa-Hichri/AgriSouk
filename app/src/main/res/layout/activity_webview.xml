@@ -10,7 +10,7 @@
         android:id="@+id/toolbarWeb"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/green_800"
+        android:background="@color/toolbar"
         app:navigationIcon="@drawable/ic_arrow_back"
         app:navigationIconTint="@color/white"
         app:title="@string/webview_title"

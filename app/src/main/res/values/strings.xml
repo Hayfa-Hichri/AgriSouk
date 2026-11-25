@@ -110,6 +110,8 @@
 
     <string name="profile_account">Mon compte</string>
     <string name="profile_app">Application</string>
+    <string name="profile_dark_mode">Mode sombre</string>
+    <string name="profile_dark_mode_sub">Thème foncé, plus confortable le soir</string>
     <string name="menu_admin">Gestion des produits</string>
     <string name="menu_admin_sub">Ajouter, modifier ou supprimer</string>
     <string name="menu_favorites">Mes favoris</string>

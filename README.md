@@ -23,6 +23,10 @@ Réalisée dans le cadre de l'examen TP — **ISET Sidi Bouzid**, 2026-2027.
 |---|---|---|
 | ![Gestion](screenshots/11-gestion-produits.png) | ![Formulaire](screenshots/12-formulaire-produit.png) | ![Favoris](screenshots/09-mes-favoris.png) |
 
+| Mode sombre — accueil | Mode sombre — profil |
+|---|---|
+| ![Accueil sombre](screenshots/18-mode-sombre-accueil.png) | ![Profil sombre](screenshots/19-mode-sombre-profil.png) |
+
 ---
 
 ## Fonctionnalités
@@ -65,6 +69,14 @@ Réalisée dans le cadre de l'examen TP — **ISET Sidi Bouzid**, 2026-2027.
 - **Portail distant** : chargement du site `https://www.agriculture.tn/`.
 - Barre de progression, gestion d'erreur et bouton « Réessayer ».
 
+### Apparence (mode clair / sombre)
+- **Interrupteur « Mode sombre »** dans le profil : l'application bascule instantanément
+  entre le thème clair et le thème foncé, sans redémarrage manuel.
+- Choix **mémorisé** dans `SharedPreferences` et réappliqué au lancement
+  (`AppCompatDelegate.setDefaultNightMode`).
+- Palette foncée dédiée (`values-night`) : l'ensemble des écrans, formulaires, dialogues,
+  barre de navigation et **bulletin HTML** adaptent leurs couleurs.
+
 ---
 
 ## Les vues complexes du cours
@@ -101,15 +113,17 @@ app/src/main/java/tn/isetsb/agrisouk/
 │   ├── adapter/  ProductAdapter, AdminProductAdapter, CategoryAdapter, WeatherAdapter
 │   ├── fragment/ Home, Market, Weather, Profile, FavoritesDialog
 │   └── widget/   PriceChartView (vue personnalisée)
-└── util/         SecurityUtils (SHA-256), SessionManager, FormatUtils, WeatherCodes, ProductImages
+└── util/         SecurityUtils (SHA-256), SessionManager, ThemeManager, FormatUtils,
+                  WeatherCodes, ProductImages
 ```
 
 - **Navigation** : `MainActivity` + `BottomNavigationView`, fragments conservés en
   `show`/`hide` (l'état est préservé d'un onglet à l'autre). Retour géré par
   `OnBackPressedDispatcher`.
-- **Interface** : Material 3 (thème vert agricole), `TextInputLayout`, `MaterialCardView`,
-  `SwipeRefreshLayout`, `FloatingActionButton`, `BottomSheetDialogFragment`, icônes
-  vectorielles et icône adaptative.
+- **Interface** : Material 3 (thème vert agricole, **DayNight** clair/sombre),
+  `TextInputLayout`, `MaterialCardView`, `MaterialSwitch`, `SwipeRefreshLayout`,
+  `FloatingActionButton`, `BottomSheetDialogFragment`, icônes vectorielles et icône
+  adaptative.
 
 ### Base de données (SQLite)
 
@@ -170,7 +184,7 @@ L'APK de test est généré dans `app/build/outputs/apk/debug/app-debug.apk`.
 | **Historique GitHub (2 pts)** | Dépôt Git structuré en commits logiques (voir plus bas). |
 | **API externe (2 pts)** | Open-Meteo (météo) + portail `agriculture.tn` dans la WebView. |
 | **APK installable (1 pt)** | `livrables/AgriSouk-debug.apk`, installé et testé sur émulateur. |
-| **Originalité (3 pts)** | Thème agricole local, graphique de prix maison, conseils agricoles selon la météo, bulletin HTML généré depuis SQLite. |
+| **Originalité (3 pts)** | Thème agricole local, graphique de prix maison, conseils agricoles selon la météo, bulletin HTML généré depuis SQLite, mode clair/sombre complet. |
 | **Vues complexes** | `ListView`/`BaseAdapter`/`ViewHolder`, `GridView`, `WebView`. |
 
 ---
@@ -190,6 +204,7 @@ Le dépôt suit une progression logique, proche d'un vrai développement :
 9. Administration (CRUD complet) et formulaire.
 10. Bulletin WebView (local + distant).
 11. Captures, documentation et livrables.
+12. Mode sombre / clair (palette `values-night`, interrupteur, persistance).
 
 ---
 

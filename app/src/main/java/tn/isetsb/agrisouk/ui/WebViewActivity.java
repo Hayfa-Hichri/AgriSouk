@@ -14,11 +14,13 @@ import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
+import java.util.Locale;
 
 import tn.isetsb.agrisouk.R;
 import tn.isetsb.agrisouk.data.ProductRepository;
@@ -178,27 +180,32 @@ public class WebViewActivity extends AppCompatActivity {
                 + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>"
                 + "<style>"
                 + "*{box-sizing:border-box}"
-                + "body{margin:0;padding:16px;background:#F5F8F3;color:#1C2923;"
+                + "body{margin:0;padding:16px;background:" + color(R.color.background)
+                + ";color:" + color(R.color.ink_900) + ";"
                 + "font-family:-apple-system,Roboto,Helvetica,Arial,sans-serif}"
-                + "header{background:linear-gradient(135deg,#1B5E20,#388E3C);color:#fff;"
+                + "header{background:linear-gradient(135deg," + color(R.color.hero_start)
+                + "," + color(R.color.hero_mid) + ");color:" + color(R.color.white) + ";"
                 + "border-radius:18px;padding:18px;margin-bottom:14px}"
                 + "h1{font-size:20px;margin:0 0 4px}"
                 + ".sub{margin:0;font-size:12px;opacity:.85}"
-                + ".card{background:#fff;border:1px solid #E2E9DF;border-radius:16px;"
+                + ".card{background:" + color(R.color.surface) + ";border:1px solid "
+                + color(R.color.outline) + ";border-radius:16px;"
                 + "padding:14px;margin-bottom:12px}"
-                + "h2{font-size:15px;color:#2E7D32;margin:0 0 8px;text-transform:capitalize}"
+                + "h2{font-size:15px;color:" + color(R.color.green_800)
+                + ";margin:0 0 8px;text-transform:capitalize}"
                 + "table{width:100%;border-collapse:collapse;font-size:13px}"
-                + "th{text-align:left;color:#6B7A70;font-weight:600;font-size:11px;"
+                + "th{text-align:left;color:" + color(R.color.ink_500) + ";font-weight:600;font-size:11px;"
                 + "text-transform:uppercase;letter-spacing:.03em;padding:4px 2px;"
-                + "border-bottom:1px solid #E2E9DF}"
-                + "td{padding:8px 2px;border-bottom:1px solid #F0F5EE;vertical-align:middle}"
+                + "border-bottom:1px solid " + color(R.color.outline) + "}"
+                + "td{padding:8px 2px;border-bottom:1px solid " + color(R.color.surface_alt)
+                + ";vertical-align:middle}"
                 + "tr:last-child td{border-bottom:none}"
                 + ".right{text-align:right}"
-                + ".unit{font-size:11px;color:#6B7A70;font-weight:400}"
-                + ".up{color:#C62828;font-weight:700;font-size:12px}"
-                + ".down{color:#2E7D32;font-weight:700;font-size:12px}"
-                + ".flat{color:#6B7A70;font-weight:600;font-size:12px}"
-                + "footer{font-size:10px;color:#9BA79F;text-align:center;"
+                + ".unit{font-size:11px;color:" + color(R.color.ink_500) + ";font-weight:400}"
+                + ".up{color:" + color(R.color.danger) + ";font-weight:700;font-size:12px}"
+                + ".down{color:" + color(R.color.green_800) + ";font-weight:700;font-size:12px}"
+                + ".flat{color:" + color(R.color.ink_500) + ";font-weight:600;font-size:12px}"
+                + "footer{font-size:10px;color:" + color(R.color.ink_300) + ";text-align:center;"
                 + "margin-top:18px;line-height:1.5}"
                 + "</style></head><body>"
                 + "<header><h1>" + Html.escapeHtml(getString(R.string.bulletin_title)) + "</h1>"
@@ -206,5 +213,9 @@ public class WebViewActivity extends AppCompatActivity {
                 + body
                 + "<footer>" + Html.escapeHtml(getString(R.string.bulletin_footer)) + "</footer>"
                 + "</body></html>";
+    }
+
+    private String color(int colorRes) {
+        return String.format(Locale.ROOT, "#%06X", 0xFFFFFF & ContextCompat.getColor(this, colorRes));
     }
 }

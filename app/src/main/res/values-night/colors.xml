@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_900">#C8E6C9</color>
+    <color name="green_800">#9BD69F</color>
+    <color name="green_700">#7CC47F</color>
+    <color name="green_600">#66BB6A</color>
+    <color name="green_200">#2F5C38</color>
+    <color name="green_100">#1E3A25</color>
+    <color name="green_50">#16271B</color>
+
+    <color name="amber_700">#FFB74D</color>
+    <color name="amber_600">#FFC25C</color>
+    <color name="amber_100">#3B2E15</color>
+    <color name="amber_50">#2A2214</color>
+    <color name="sun">#FFD54F</color>
+
+    <color name="brown_700">#FFE0B2</color>
+    <color name="brown_100">#2A2320</color>
+
+    <color name="ink_900">#E9F2EB</color>
+    <color name="ink_700">#C3D1C7</color>
+    <color name="ink_500">#97A99C</color>
+    <color name="ink_300">#6D8074</color>
+
+    <color name="surface">#161F1A</color>
+    <color name="surface_alt">#1C2721</color>
+    <color name="background">#0E1512</color>
+    <color name="outline">#2C3A32</color>
+
+    <color name="danger">#EF9A9A</color>
+    <color name="danger_50">#3A1E1E</color>
+
+    <color name="cat_legume">#81C784</color>
+    <color name="cat_legume_bg">#17301D</color>
+    <color name="cat_fruit">#FFB74D</color>
+    <color name="cat_fruit_bg">#33260F</color>
+    <color name="cat_cereale">#E6C34A</color>
+    <color name="cat_cereale_bg">#2E2A12</color>
+    <color name="cat_ferme">#BCAAA4</color>
+    <color name="cat_ferme_bg">#2A2320</color>
+
+    <color name="toolbar">#12351A</color>
+    <color name="hero_start">#081A0E</color>
+    <color name="hero_mid">#0F2A15</color>
+    <color name="hero_end">#17411F</color>
+    <color name="on_primary">#0E1B12</color>
+    <color name="on_secondary">#241505</color>
+    <color name="status_bar">#08130C</color>
+</resources>

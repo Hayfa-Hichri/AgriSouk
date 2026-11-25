@@ -13,11 +13,13 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 import tn.isetsb.agrisouk.R;
 import tn.isetsb.agrisouk.data.ProductRepository;
 import tn.isetsb.agrisouk.ui.MainActivity;
 import tn.isetsb.agrisouk.util.SessionManager;
+import tn.isetsb.agrisouk.util.ThemeManager;
 
 /**
  * Profil : identité, rôle et accès aux fonctions du compte.
@@ -82,7 +84,22 @@ public class ProfileFragment extends Fragment {
         rowLogout.findViewById(R.id.ivRowIcon)
                 .setBackgroundTintList(ContextCompat.getColorStateList(requireContext(), R.color.danger_50));
 
+        bindThemeRow(view);
+
         loadStats();
+    }
+
+    private void bindThemeRow(View root) {
+        View row = root.findViewById(R.id.rowDarkMode);
+        ((ImageView) row.findViewById(R.id.ivSwitchIcon)).setImageResource(R.drawable.ic_dark_mode);
+        ((TextView) row.findViewById(R.id.tvSwitchTitle)).setText(R.string.profile_dark_mode);
+        ((TextView) row.findViewById(R.id.tvSwitchSub)).setText(R.string.profile_dark_mode_sub);
+
+        MaterialSwitch toggle = row.findViewById(R.id.swSwitch);
+        toggle.setChecked(ThemeManager.isDark(requireContext()));
+        toggle.setOnCheckedChangeListener((button, checked) ->
+                ThemeManager.setDark(requireContext(), checked));
+        row.setOnClickListener(v -> toggle.toggle());
     }
 
     @Override

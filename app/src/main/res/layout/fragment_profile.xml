@@ -238,6 +238,16 @@
                 android:orientation="vertical">
 
                 <include
+                    android:id="@+id/rowDarkMode"
+                    layout="@layout/row_switch" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="68dp"
+                    android:background="@color/outline" />
+
+                <include
                     android:id="@+id/rowAbout"
                     layout="@layout/row_item" />
 
