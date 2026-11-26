@@ -14,7 +14,9 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import tn.isetsb.agrisouk.R;
 import tn.isetsb.agrisouk.model.Product;
@@ -23,6 +25,7 @@ import tn.isetsb.agrisouk.util.ProductImages;
 
 /**
  * Liste d'administration : chaque ligne propose la modification et la suppression.
+ * Comme pour le marché, la ligne ne réactualise que les vues dont la valeur change.
  */
 public class AdminProductAdapter extends BaseAdapter {
 
@@ -36,6 +39,7 @@ public class AdminProductAdapter extends BaseAdapter {
     private final LayoutInflater inflater;
     private final Listener listener;
     private List<Product> items = new ArrayList<>();
+    private final Map<String, Integer> thumbColors = new HashMap<>();
 
     public AdminProductAdapter(Context context, List<Product> items, Listener listener) {
         this.context = context;
@@ -76,26 +80,38 @@ public class AdminProductAdapter extends BaseAdapter {
         }
 
         Product product = getItem(position);
+        holder.product = product;
+
         holder.name.setText(product.getName());
         holder.meta.setText(context.getString(R.string.ref_label, product.getRef())
                 + " · " + product.getCategory());
         holder.price.setText(FormatUtils.price(product.getPrice())
                 + " " + context.getString(R.string.per_unit, product.getUnit()));
-        holder.icon.setImageResource(ProductImages.icon(product.getImageKey()));
 
-        Drawable thumb = holder.thumb.getBackground();
-        if (thumb != null) {
-            thumb.mutate().setTint(ContextCompat.getColor(context,
-                    ProductImages.categoryBackground(product.getCategory())));
+        int iconRes = ProductImages.icon(product.getImageKey());
+        if (holder.iconRes != iconRes) {
+            holder.iconRes = iconRes;
+            holder.icon.setImageResource(iconRes);
         }
 
-        holder.itemView.setOnClickListener(view -> listener.onEdit(product));
-        holder.edit.setOnClickListener(view -> listener.onEdit(product));
-        holder.delete.setOnClickListener(view -> listener.onDelete(product));
+        int thumbColor = thumbColor(product.getCategory());
+        if (holder.thumbColor != thumbColor) {
+            holder.thumbColor = thumbColor;
+            holder.thumbDrawable.setTint(thumbColor);
+        }
         return convertView;
     }
 
-    private static final class ViewHolder {
+    private int thumbColor(String category) {
+        Integer value = thumbColors.get(category);
+        if (value == null) {
+            value = ContextCompat.getColor(context, ProductImages.categoryBackground(category));
+            thumbColors.put(category, value);
+        }
+        return value;
+    }
+
+    private final class ViewHolder {
         private final View itemView;
         private final FrameLayout thumb;
         private final ImageView icon;
@@ -104,6 +120,11 @@ public class AdminProductAdapter extends BaseAdapter {
         private final TextView price;
         private final ImageButton edit;
         private final ImageButton delete;
+        private final Drawable thumbDrawable;
+
+        private Product product;
+        private int iconRes;
+        private int thumbColor;
 
         private ViewHolder(View view) {
             itemView = view;
@@ -114,6 +135,24 @@ public class AdminProductAdapter extends BaseAdapter {
             price = view.findViewById(R.id.tvAdminPrice);
             edit = view.findViewById(R.id.btnAdminEdit);
             delete = view.findViewById(R.id.btnAdminDelete);
+
+            thumbDrawable = thumb.getBackground().mutate();
+
+            itemView.setOnClickListener(v -> {
+                if (product != null) {
+                    listener.onEdit(product);
+                }
+            });
+            edit.setOnClickListener(v -> {
+                if (product != null) {
+                    listener.onEdit(product);
+                }
+            });
+            delete.setOnClickListener(v -> {
+                if (product != null) {
+                    listener.onDelete(product);
+                }
+            });
         }
     }
 }

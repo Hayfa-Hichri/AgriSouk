@@ -55,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:textColor="@color/ink_500"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -68,11 +69,12 @@
                 android:id="@+id/listAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:cacheColorHint="@android:color/transparent"
                 android:clipToPadding="false"
                 android:divider="@null"
                 android:dividerHeight="0dp"
+                android:listSelector="@android:color/transparent"
                 android:paddingStart="16dp"
-                android:paddingTop="8dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="88dp"
                 android:scrollbars="none" />
