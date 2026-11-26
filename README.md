@@ -27,6 +27,10 @@ Réalisée dans le cadre de l'examen TP — **ISET Sidi Bouzid**, 2026-2027.
 |---|---|
 | ![Accueil sombre](screenshots/18-mode-sombre-accueil.png) | ![Profil sombre](screenshots/19-mode-sombre-profil.png) |
 
+| Conseil du jour (voix FR/AR/EN) | Itinéraire vers le marché |
+|---|---|
+| ![Conseil du jour](screenshots/20-conseil-du-jour.png) | ![Itinéraire](screenshots/21-itineraire.png) |
+
 ---
 
 ## Fonctionnalités
@@ -54,9 +58,20 @@ Réalisée dans le cadre de l'examen TP — **ISET Sidi Bouzid**, 2026-2027.
 
 ### Météo agricole (API externe)
 - Conditions actuelles + **prévisions sur 5 jours** via **Open-Meteo** (HTTPS, JSON, sans clé).
-- Code météo traduit en libellé et icône, **conseil agricole** contextuel.
+- Code météo traduit en libellé et icône.
+- **Conseil du jour calculé** par un moteur de règles local (`DailyAdvice`) : gel, vent fort,
+  pluie dans les 48 h, forte chaleur, ou conditions favorables — avec niveau d'alerte coloré.
+- **Lecture vocale** du conseil en **français, arabe et anglais** (`TextToSpeech`), avec
+  détection de la voix manquante.
 - Mise en cache locale (`SharedPreferences`) : l'écran reste lisible hors connexion.
 - Rechargement par glissement (`SwipeRefreshLayout`) et bouton d'actualisation.
+
+### Itinéraire vers le marché
+- Carte « **Itinéraire vers le marché** » sur l'accueil : ouvre Google Maps sur le marché
+  de gros de Sidi Bouzid (`Intent` `geo:`), avec repli sur le navigateur si aucune
+  application de cartes n'est installée.
+- Aucune clé API ni permission de localisation : la position et l'itinéraire sont gérés
+  par l'application de cartes.
 
 ### Administration (CRUD)
 - Liste de tous les produits avec recherche.
@@ -114,7 +129,7 @@ app/src/main/java/tn/isetsb/agrisouk/
 │   ├── fragment/ Home, Market, Weather, Profile, FavoritesDialog
 │   └── widget/   PriceChartView (vue personnalisée)
 └── util/         SecurityUtils (SHA-256), SessionManager, ThemeManager, FormatUtils,
-                  WeatherCodes, ProductImages
+                  WeatherCodes, DailyAdvice, MapsLauncher, ProductImages
 ```
 
 - **Navigation** : `MainActivity` + `BottomNavigationView`, fragments conservés en
@@ -184,7 +199,7 @@ L'APK de test est généré dans `app/build/outputs/apk/debug/app-debug.apk`.
 | **Historique GitHub (2 pts)** | Dépôt Git structuré en commits logiques (voir plus bas). |
 | **API externe (2 pts)** | Open-Meteo (météo) + portail `agriculture.tn` dans la WebView. |
 | **APK installable (1 pt)** | `livrables/AgriSouk-debug.apk`, installé et testé sur émulateur. |
-| **Originalité (3 pts)** | Thème agricole local, graphique de prix maison, conseils agricoles selon la météo, bulletin HTML généré depuis SQLite, mode clair/sombre complet. |
+| **Originalité (3 pts)** | Thème agricole local, graphique de prix maison, conseil du jour calculé à partir des prévisions, lecture vocale du conseil en FR/AR/EN, itinéraire vers le marché, bulletin HTML généré depuis SQLite, mode clair/sombre complet. |
 | **Vues complexes** | `ListView`/`BaseAdapter`/`ViewHolder`, `GridView`, `WebView`. |
 
 ---
@@ -205,6 +220,7 @@ Le dépôt suit une progression logique, proche d'un vrai développement :
 10. Bulletin WebView (local + distant).
 11. Captures, documentation et livrables.
 12. Mode sombre / clair (palette `values-night`, interrupteur, persistance).
+13. Conseil du jour, lecture vocale FR/AR/EN et itinéraire vers le marché.
 
 ---
 

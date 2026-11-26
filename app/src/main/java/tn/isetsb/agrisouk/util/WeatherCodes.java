@@ -55,24 +55,4 @@ public final class WeatherCodes {
         }
         return R.drawable.ic_cloudy;
     }
-
-    /**
-     * Conseil agricole simple affiché sous les prévisions.
-     */
-    public static String advice(int code) {
-        if (code == 0 || code == 1) {
-            return "Conditions idéales pour les travaux de plein champ.";
-        } else if (code == 2) {
-            return "Temps calme, bonne journée pour l'irrigation.";
-        } else if (code >= 51 && code <= 67) {
-            return "Pluie attendue : reportez les traitements.";
-        } else if (code >= 80 && code <= 82) {
-            return "Averses possibles : protégez les cultures sensibles.";
-        } else if (code >= 95) {
-            return "Orages : évitez les travaux exposés.";
-        } else if (code == 45 || code == 48) {
-            return "Brouillard : prudence sur les routes agricoles.";
-        }
-        return "Surveillez l'humidité de vos parcelles.";
-    }
 }

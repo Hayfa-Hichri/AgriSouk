@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="advice_good_title">ظروف مواتية</string>
+    <string name="advice_good_body">رياح معتدلة ولا أمطار متوقعة: وقت مناسب للرش أو البذر أو الحصاد.</string>
+    <string name="advice_wind_title">لا ترشّ اليوم</string>
+    <string name="advice_wind_body">رياح بقوة %1$d كم/س: قد يحملها الهواء بعيداً. أجّل المعالجة.</string>
+    <string name="advice_rain_title">أجّل الريّ</string>
+    <string name="advice_rain_body">أمطار متوقعة خلال 48 ساعة: دع المطر يسقي أراضيك.</string>
+    <string name="advice_frost_title">خطر الصقيع</string>
+    <string name="advice_frost_body">درجة الحرارة الدنيا %1$d °م هذه الليلة: غطِّ المحاصيل الحساسة.</string>
+    <string name="advice_heat_title">حرارة مرتفعة</string>
+    <string name="advice_heat_body">درجة الحرارة القصوى %1$d °م: اسقِ في الصباح الباكر أو في آخر النهار.</string>
+</resources>

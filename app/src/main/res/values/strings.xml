@@ -105,8 +105,20 @@
     <string name="weather_source_body">Les prévisions proviennent de l\'API publique Open-Meteo (api.open-meteo.com), actualisée à chaque ouverture de l\'écran.</string>
     <string name="weather_bulletin">Bulletin national du marché</string>
     <string name="weather_current">Maintenant</string>
-    <string name="weather_advice_title">Conseil agricole</string>
+    <string name="weather_advice_title">Conseil du jour</string>
     <string name="weather_cached_notice">Données en cache — reconnexion nécessaire pour actualiser.</string>
+    <string name="advice_listen">Écouter :</string>
+    <string name="advice_lang_fr">FR</string>
+    <string name="advice_lang_ar">AR</string>
+    <string name="advice_lang_en">EN</string>
+    <string name="cd_listen_fr">Écouter le conseil en français</string>
+    <string name="cd_listen_ar">Écouter le conseil en arabe</string>
+    <string name="cd_listen_en">Écouter le conseil en anglais</string>
+    <string name="advice_tts_unavailable">La synthèse vocale n\'est pas disponible sur ce téléphone.</string>
+    <string name="advice_voice_missing">La voix demandée n\'est pas installée. Ajoutez-la dans les réglages de synthèse vocale.</string>
+    <string name="quick_itinerary">Itinéraire vers le marché</string>
+    <string name="quick_itinerary_sub">Marché de gros de Sidi Bouzid</string>
+    <string name="itinerary_unavailable">Aucune application de cartes n\'est installée.</string>
 
     <string name="profile_account">Mon compte</string>
     <string name="profile_app">Application</string>

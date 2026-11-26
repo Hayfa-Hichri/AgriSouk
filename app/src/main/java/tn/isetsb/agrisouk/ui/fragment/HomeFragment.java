@@ -25,6 +25,7 @@ import tn.isetsb.agrisouk.model.Weather;
 import tn.isetsb.agrisouk.ui.MainActivity;
 import tn.isetsb.agrisouk.ui.adapter.CategoryAdapter;
 import tn.isetsb.agrisouk.util.FormatUtils;
+import tn.isetsb.agrisouk.util.MapsLauncher;
 import tn.isetsb.agrisouk.util.SessionManager;
 import tn.isetsb.agrisouk.util.WeatherCodes;
 
@@ -91,6 +92,7 @@ public class HomeFragment extends Fragment {
         view.findViewById(R.id.cardMarket).setOnClickListener(v -> main.openTab(R.id.nav_market));
         view.findViewById(R.id.cardWeather).setOnClickListener(v -> main.openTab(R.id.nav_weather));
         view.findViewById(R.id.cardBulletin).setOnClickListener(v -> main.openWebView(false));
+        view.findViewById(R.id.cardItinerary).setOnClickListener(v -> MapsLauncher.openMarket(requireContext()));
         view.findViewById(R.id.cardHomeWeather).setOnClickListener(v -> main.openTab(R.id.nav_weather));
         ((ImageButton) view.findViewById(R.id.btnHomeWeatherRefresh))
                 .setOnClickListener(v -> loadWeather());

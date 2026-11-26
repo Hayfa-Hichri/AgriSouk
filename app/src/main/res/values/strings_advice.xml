@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="advice_good_title">Conditions favorables</string>
+    <string name="advice_good_body">Vent modéré et pas de pluie annoncée : bon moment pour pulvériser, semer ou récolter.</string>
+    <string name="advice_wind_title">Ne pas pulvériser</string>
+    <string name="advice_wind_body">Vent de %1$d km/h : le produit serait emporté. Reportez le traitement.</string>
+    <string name="advice_rain_title">Reportez l\'irrigation</string>
+    <string name="advice_rain_body">Pluie annoncée dans les 48 h : laissez la pluie arroser vos parcelles.</string>
+    <string name="advice_frost_title">Risque de gel</string>
+    <string name="advice_frost_body">Minimum de %1$d °C cette nuit : couvrez les cultures sensibles.</string>
+    <string name="advice_heat_title">Forte chaleur</string>
+    <string name="advice_heat_body">Maximum de %1$d °C : irriguez tôt le matin ou en fin de journée.</string>
+</resources>

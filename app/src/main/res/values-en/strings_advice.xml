@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="advice_good_title">Favourable conditions</string>
+    <string name="advice_good_body">Light wind and no rain forecast: a good time to spray, sow or harvest.</string>
+    <string name="advice_wind_title">Do not spray</string>
+    <string name="advice_wind_body">Wind at %1$d km/h: the spray would drift away. Postpone the treatment.</string>
+    <string name="advice_rain_title">Postpone irrigation</string>
+    <string name="advice_rain_body">Rain is forecast within 48 hours: let it water your plots.</string>
+    <string name="advice_frost_title">Frost risk</string>
+    <string name="advice_frost_body">Low of %1$d °C tonight: cover sensitive crops.</string>
+    <string name="advice_heat_title">High heat</string>
+    <string name="advice_heat_body">High of %1$d °C: irrigate early in the morning or late in the day.</string>
+</resources>

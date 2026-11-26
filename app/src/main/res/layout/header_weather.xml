@@ -135,39 +135,99 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_advice"
-        android:orientation="horizontal"
-        android:padding="12dp"
+        android:orientation="vertical"
+        android:padding="14dp"
         android:visibility="gone">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_info"
-            android:tint="@color/amber_700" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivAdviceIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_info"
+                android:tint="@color/amber_700" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weather_advice_title"
+                    android:textColor="@color/amber_700"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAdviceTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/ink_900"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvWeatherAdvice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/ink_700"
+            android:textSize="13sp" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/weather_advice_title"
-                android:textColor="@color/amber_700"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:text="@string/advice_listen"
+                android:textColor="@color/ink_500"
+                android:textSize="11sp" />
 
-            <TextView
-                android:id="@+id/tvWeatherAdvice"
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnListenFr"
+                style="@style/Widget.AgriSouk.Button.Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textColor="@color/ink_700"
-                android:textSize="12sp" />
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/cd_listen_fr"
+                android:text="@string/advice_lang_fr" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnListenAr"
+                style="@style/Widget.AgriSouk.Button.Chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/cd_listen_ar"
+                android:text="@string/advice_lang_ar" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnListenEn"
+                style="@style/Widget.AgriSouk.Button.Chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/cd_listen_en"
+                android:text="@string/advice_lang_en" />
         </LinearLayout>
     </LinearLayout>
 
