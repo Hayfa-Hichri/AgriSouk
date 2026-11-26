@@ -109,7 +109,7 @@ public class MarketFragment extends Fragment implements ProductAdapter.Listener 
 
             @Override
             public void afterTextChanged(Editable s) {
-                applyFilters();
+                applyFilters(true);
             }
         });
 
@@ -144,7 +144,7 @@ public class MarketFragment extends Fragment implements ProductAdapter.Listener 
                 spinnerCategory.setSelection(categorySelection);
             }
         }
-        applyFilters();
+        applyFilters(true);
     }
 
     private void setupCategorySpinner() {
@@ -163,7 +163,7 @@ public class MarketFragment extends Fragment implements ProductAdapter.Listener 
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 categorySelection = position;
                 selectedCategory = position == 0 ? null : categories.get(position - 1);
-                applyFilters();
+                applyFilters(true);
             }
 
             @Override
@@ -188,7 +188,7 @@ public class MarketFragment extends Fragment implements ProductAdapter.Listener 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 sortMode = position;
-                applyFilters();
+                applyFilters(true);
             }
 
             @Override
@@ -199,11 +199,11 @@ public class MarketFragment extends Fragment implements ProductAdapter.Listener 
 
     private void loadProducts() {
         allProducts = repository.getProducts(session.getUserId());
-        applyFilters();
+        applyFilters(false);
         swipeMarket.setRefreshing(false);
     }
 
-    private void applyFilters() {
+    private void applyFilters(boolean scrollToTop) {
         if (adapter == null || etSearch == null) {
             return;
         }
@@ -238,6 +238,9 @@ public class MarketFragment extends Fragment implements ProductAdapter.Listener 
         }
 
         adapter.setItems(filtered);
+        if (scrollToTop) {
+            listProducts.setSelection(0);
+        }
         tvMarketCount.setText(filtered.size() == 1
                 ? getString(R.string.product_count_one)
                 : getString(R.string.products_count, filtered.size()));
@@ -249,7 +252,7 @@ public class MarketFragment extends Fragment implements ProductAdapter.Listener 
         spinnerCategory.setSelection(0);
         spinnerSort.setSelection(SORT_NAME);
         selectedCategory = null;
-        applyFilters();
+        applyFilters(true);
     }
 
     @Override

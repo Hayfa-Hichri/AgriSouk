@@ -50,6 +50,8 @@ Réalisée dans le cadre de l'examen TP — **ISET Sidi Bouzid**, 2026-2027.
 - **Filtre par catégorie** et **tri** (nom, prix croissant/décroissant, plus récents).
 - **Favoris** par utilisateur (cœur sur chaque ligne, écran « Mes favoris »).
 - Compteur de résultats et état vide avec bouton de réinitialisation.
+- Défilement fluide : lignes recyclées, fond `ripple` léger et mise à jour d'une ligne
+  uniquement lorsque sa valeur change ; la liste revient en haut après un filtre.
 
 ### Fiche produit
 - Prix, tendance, unité, référence, description.
